@@ -11,9 +11,10 @@ import { PubNubAngular } from 'pubnub-angular2';
 // see https://www.pubnub.com/docs/angular2-javascript/pubnub-javascript-sdk 
 export class PubnubComponent implements OnInit {
 
-  theText: string;
+  public theText: string;
 
   constructor(private pubnub: PubNubAngular) {
+
     pubnub.init({
       publishKey: 'pub-c-e11114a1-c46e-485f-8cd3-4edc9c242673',
       subscribeey: 'sub-c-c47a6758-bccd-11e8-9232-1678d61e8f93'
@@ -24,6 +25,7 @@ export class PubnubComponent implements OnInit {
     });
 
     this.subscribe();
+
   }
 
   ngOnInit() {
@@ -40,6 +42,17 @@ export class PubnubComponent implements OnInit {
     this.pubnub.getInstance("another").grant(
       {
         channels: ['my_channel'],
+       // authKeys: ['my_authkey'],
+        read: true,
+        write: false
+      }, (status) => {
+        console.log(status);
+      }
+    );
+    /*
+    this.pubnub.getInstance("another").grant(
+      {
+        channels: ['my_channel'],
         authKeys: ['my_authkey'],
         read: true,
         write: false
@@ -47,6 +60,7 @@ export class PubnubComponent implements OnInit {
         console.log(status);
       }
     );
+    */
   }
 
   publish() {

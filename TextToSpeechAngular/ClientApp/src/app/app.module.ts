@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { PubNubAngular } from 'pubnub-angular2';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PubnubComponent } from './pubnub/pubnub.component';
@@ -11,7 +12,8 @@ import { PubnubComponent } from './pubnub/pubnub.component';
     PubnubComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [PubNubAngular],
   bootstrap: [AppComponent]

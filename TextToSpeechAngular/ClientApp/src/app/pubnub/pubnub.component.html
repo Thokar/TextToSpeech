@@ -39,14 +39,14 @@
   <input type="button" ng-click="sayIt()" value="Say it!" />
 </div>
 -->
-
 <!--https://www.pubnub.com/docs/angular2-javascript/pubnub-javascript-sdk-->
+<!--https://www.pubnub.com/tutorials/pubnub-access-manager/-->
 <div class="container">
 
   <pre>NOTE: Requires Chrome Desktop or Android Browser</pre>
 
   <h3>MyText to Speech</h3>
 
-  <textarea ngModel="theText" rows="10" cols="40"></textarea>
-  <input type="button" ng-click="sayIt()" value="Say it!" />
+  <textarea [(ngModel)]="theText" rows="10" cols="40"></textarea>
+  <input type="button" (click)="sayIt()" value="Say it!" />
 </div>
